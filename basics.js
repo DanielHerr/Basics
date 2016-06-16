@@ -1,6 +1,6 @@
 "use strict"
 
-function ignore() {}
+function ignore() { }
 
 function not(value) {
  if(value) {
@@ -28,11 +28,24 @@ function datatype(data) {
 
 var log = console.log.bind(console)
 
-EventTarget.prototype.on = function(events, listener) {
- if(Array.isArray(events)) {
-  for(let event of events) {
-   this.addEventListener(event, listener)
-  }
+var element = {
+ create: document.createElement.bind(document),
+ get: document.querySelector.bind(document),
+ getall: document.querySelectorAll.bind(document),
+ getid: document.getElementById.bind(document),
+ gettag: document.getElementsByTagName.bind(document),
+ getclass: document.getElementsByClassName.bind(document)
+}
+
+EventTarget.prototype.on = function(events = [] || "", options = {}, listener) {
+ let target = this
+ if(listener == undefined && datatype(options) == "function") {
+  listener = options
+  options = undefined
+ }
+ if(datatype(events) == "string") {
+  target.addEventListener(events, listener, options)
  } else {
-  this.addEventListener(events, listener)
-} }
+  for(let event of events) {
+   target.addEventListener(event, listener, options)
+} } }
