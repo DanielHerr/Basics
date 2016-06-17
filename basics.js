@@ -36,16 +36,3 @@ var element = {
  gettag: document.getElementsByTagName.bind(document),
  getclass: document.getElementsByClassName.bind(document)
 }
-
-EventTarget.prototype.on = function(events = [] || "", options = {}, listener) {
- let target = this
- if(listener == undefined && datatype(options) == "function") {
-  listener = options
-  options = undefined
- }
- if(datatype(events) == "string") {
-  target.addEventListener(events, listener, options)
- } else {
-  for(let event of events) {
-   target.addEventListener(event, listener, options)
-} } }
