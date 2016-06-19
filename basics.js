@@ -14,18 +14,6 @@ function wait(time = 0) {
   setTimeout(resolve, time)
 })) }
 
-function datatype(data) {
- let type = typeof(data)
- if(type == "object") {
-  if(data == null) {
-   type = "null"
-  }
-  else if(Array.isArray(data)) {
-   type = "array"
- } }
- return(type)
-}
-
 var log = console.log.bind(console)
 
 var element = {
