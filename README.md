@@ -7,13 +7,10 @@ ignore()
 
 log(value)
 
-inverse = not(value)
+opposite = not(value)
 
-type = datatype(data)
+array = arrayobject(object)
 
 promise = wait(time)
-
-target.on("event", listener)
-target.on([events], listener)
 
 ```
