@@ -7,10 +7,14 @@ ignore()
 
 log(value)
 
-opposite = not(value)
+boolean = not(boolean)
 
 array = arrayobject(object)
 
-promise = wait(time)
+promise = wait(number)
+
+string = datatype(value)
+
+boolean = value.is(...values)
 
 ```
