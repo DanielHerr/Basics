@@ -30,3 +30,7 @@ function datatype(item) {
 }
 
 var log = console.log.bind(console)
+
+Object.prototype.is = function(...values) {
+ return(values.includes(this))
+}
