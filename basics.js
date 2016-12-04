@@ -9,7 +9,7 @@ function not(value) {
   return(true)
 } }
 
-function arrayobject(item) {
+function arrayobject(item = {}) {
  return(Object.assign(Object.values(item), item))
 }
 
@@ -17,5 +17,16 @@ function wait(time = 0) {
  return(new Promise(function(resolve) {
   setTimeout(resolve, time)
 })) }
+
+function datatype(item) {
+ let type = typeof(item)
+ if(type == "object") {
+  if(item == null) {
+   type = "null"
+  } else if(Array.isArray(item)) {
+   type = "array"
+ } }
+ return(type)
+}
 
 var log = console.log.bind(console)
